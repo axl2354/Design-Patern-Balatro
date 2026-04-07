@@ -1,7 +1,7 @@
 // HandPlayer.cpp
-#include <iostream>
 #include "HandPlayer.h"
+#include <iostream>
 
 void HandPlayer::playHand() {
-    std::cout << "Player selects cards to play...\n"; // [cite: 204]
+    std::cout << "Player selects cards to play...\n";
 }

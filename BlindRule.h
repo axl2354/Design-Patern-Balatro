@@ -3,5 +3,5 @@
 
 class BlindRule {
 public:
-    bool checkBlind(int score); // [cite: 374]
+    bool checkBlind(int score);
 };

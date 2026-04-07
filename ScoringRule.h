@@ -1,22 +1,30 @@
-#ifndef SCORINGSYSTEM_H
-#define SCORINGSYSTEM_H
-
-#include "PokerHandChecker.h"
+// ScoringRule.h
+#pragma once
 #include "Hand.h"
-#include <string>
-#include <vector>
+#include "PokerHandChecker.h"
+#include "Checkers.h"
 
-struct Score
-{
-    std::string handName;
-    int chips;
-    int mult;
+class ScoringRule {
+public:
+    ScoringRule();
+    int scoreHand(const Hand& hand);
+    int convertRankToScore(HandRank rank);
 
-    std::vector<int> scoringIndexes;
+private:
+    // Instansiasi semua 13 checker
+    FlushFiveChecker flushFive;
+    FlushHouseChecker flushHouse;
+    FiveOfAKindChecker fiveOfAKind;
+    RoyalFlushChecker royalFlush;
+    StraightFlushChecker straightFlush;
+    FourOfAKindChecker fourOfAKind;
+    FullHouseChecker fullHouse;
+    FlushChecker flush;
+    StraightChecker straight;
+    ThreeOfAKindChecker threeOfAKind;
+    TwoPairChecker twoPair;
+    PairChecker pairChecker;
+    HighCardChecker highCard;
+    
+    PokerHandChecker* rootChecker = nullptr;
 };
-ScoringRule();
-int scoreHand(const Hand& hand);
-int convertRankToScore(HandRank rank);
-
-
-#endif
