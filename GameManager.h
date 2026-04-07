@@ -5,10 +5,11 @@
 #include "ScoringRule.h"
 #include "BlindRule.h"
 #include "RewardRule.h"
-#include "ScoringRule.h"
 
 class GameManager {
 public:
+    GameManager();
+    ~GameManager();
     void runSession();
 private:
     HandGenerator handGenerator;

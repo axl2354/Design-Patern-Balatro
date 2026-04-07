@@ -1,8 +1,8 @@
-#ifndef FOUROFAKINDCHECKER_H
-#define FOUROFAKINDCHECKER_H
+#ifndef FlUSHHOUSECHECKER_H
+#define FlUSHHOUSECHECKER_H
 #include "../PokerHandChecker.h"
 using namespace std;
-class FourOfAKindChecker:public PokerHandChecker{
+class FlushHouseChecker:public PokerHandChecker{
 public:
     HandRank check(const Hand& hand) override;
 };

@@ -1,6 +1,9 @@
-#include "../HandRankChecker.h"
+#ifndef FIVEOFAKINDCHECKER_H
+#define FIVEOFAKINDCHECKER_H
+#include "../PokerHandChecker.h"
 using namespace std;
-class FIveOfAKindChecker{
+class FiveOfAKindChecker:public PokerHandChecker{
 public:
     HandRank check(const Hand& hand) override;
 };
+#endif

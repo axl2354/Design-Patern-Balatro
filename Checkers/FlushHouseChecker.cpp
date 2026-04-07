@@ -1,0 +1,13 @@
+
+#include <iostream>
+#include "FlushHouseChecker.h"
+using namespace std;
+HandRank FlushHouseChecker::check(const Hand& hand) {
+    cout << "Checking for Flush House...\n";
+    if (hand.value == 2) {
+        cout << "Got Flush House...\n";
+        return HandRank::Flush;
+    }
+    if (nextChecker) return nextChecker->check(hand);
+    return HandRank::HighCard;
+}

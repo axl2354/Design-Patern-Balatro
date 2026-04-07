@@ -2,6 +2,13 @@
 #include "GameManager.h"
 #include <iostream>
 
+GameManager::GameManager() {
+}
+
+GameManager::~GameManager() {
+    // ScoringRule destructor will be called automatically
+}
+
 void GameManager::runSession() {
     std::cout << "=== Run Started ===\n";
     
