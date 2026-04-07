@@ -3,5 +3,5 @@
 
 class HandPlayer {
 public:
-    void playHand(); // 
+    void playHand();
 };

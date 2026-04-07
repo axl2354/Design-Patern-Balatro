@@ -3,5 +3,5 @@
 
 class RewardRule {
 public:
-    int earnMoney(bool win, int score); // [cite: 375]
+    int earnMoney(bool win, int score);
 };

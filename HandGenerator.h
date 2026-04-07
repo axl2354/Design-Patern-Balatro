@@ -4,5 +4,5 @@
 
 class HandGenerator {
 public:
-    Hand generateHand(); // [cite: 358]
+    Hand generateHand();
 };
