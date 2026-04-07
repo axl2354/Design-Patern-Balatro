@@ -1,10 +1,14 @@
-#include "FlushChecker.h"
-#include "StraightChecker.h"
+
 #include "Hand.h"
 #include <map>
 #include <algorithm>
-using namespace std;
 
-virtual HandRank check(const Hand& hand) = 0;
-void setNext(PokerHandChecker* next);
-PokerHandChecker* nextChecker = nullptr;
+class PokerHandChecker
+{
+public:
+    virtual HandRank check(const Hand &hand);
+    void setNext(PokerHandChecker *next);
+
+private:
+    PokerHandChecker *nextChecker = nullptr;
+};
