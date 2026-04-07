@@ -1,6 +1,7 @@
 #ifndef SCORINGSYSTEM_H
 #define SCORINGSYSTEM_H
 
+#include "PokerHandChecker.h"
 #include "Hand.h"
 #include <string>
 #include <vector>
@@ -13,11 +14,9 @@ struct Score
 
     std::vector<int> scoringIndexes;
 };
-class ScoringSystem
-{
-public:
-    static std::vector<IModifier*> modifiers;
-    static Score evaluateHand(const Hand& hand);
-};
+ScoringRule();
+int scoreHand(const Hand& hand);
+int convertRankToScore(HandRank rank);
+
 
 #endif

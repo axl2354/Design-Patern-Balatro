@@ -1,28 +1,16 @@
 #include "ScoringRule.h"
+#include "Hand.h"
 #include <map>
 #include <algorithm>
 using namespace std;
-#include "ModifierFactory.h"
 
-std::vector<IModifier*> ScoringSystem::modifiers;
-int getCardChips(const Card &c)
-{
-    if (c.rank <= 10)
-        return c.rank;
 
-    if (c.rank == 11)
-        return 10; // J
-    if (c.rank == 12)
-        return 10; // Q
-    if (c.rank == 13)
-        return 10; // K
-    if (c.rank == 14)
-        return 11; // A
-
-    return 0;
+int scoreHand(const Hand& hand){
 
 }
+int convertRankToScore(HandRank rank){
 
+}
 Score ScoringSystem::evaluateHand(const Hand &hand)
 {
     Score result = {"", 0, 1};
