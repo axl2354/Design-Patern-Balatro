@@ -1,9 +1,8 @@
-// ScoringRule.cpp
+
 #include "ScoringRule.h"
 #include <iostream>
 
 ScoringRule::ScoringRule() {
-    // Allocate all checkers
     flushFive = new FlushFiveChecker();
     flushHouse = new FlushHouseChecker();
     fiveOfAKind = new FiveOfAKindChecker();
@@ -18,7 +17,6 @@ ScoringRule::ScoringRule() {
     pairChecker = new PairChecker();
     highCard = new HighCardChecker();
 
-    // Chain them from strongest to weakest
     flushFive->setNext(flushHouse);
     flushHouse->setNext(fiveOfAKind);
     fiveOfAKind->setNext(royalFlush);
@@ -31,13 +29,12 @@ ScoringRule::ScoringRule() {
     threeOfAKind->setNext(twoPair);
     twoPair->setNext(pairChecker);
     pairChecker->setNext(highCard);
-
-    // Set the starting point
+    
     rootChecker = flushFive;
+
 }
 
 ScoringRule::~ScoringRule() {
-    // Clean up allocated memory
     delete flushFive;
     delete flushHouse;
     delete fiveOfAKind;
@@ -60,7 +57,6 @@ int ScoringRule::scoreHand(const Hand& hand) {
 }
 
 int ScoringRule::convertRankToScore(HandRank rank) {
-    // Convert hand rank to score value
     switch (rank) {
         case HandRank::FlushFive: return 200;
         case HandRank::FlushHouse: return 150;
