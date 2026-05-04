@@ -14,7 +14,7 @@ void GameManager::runSession() {
     
     Hand hand = handGenerator.generateHand();
     Hand playedHand = handPlayer.playHand(hand);
-    int score = scoringRule.scoreHand(hand);
+    int score = scoringRule.scoreHand(playedHand);
     bool win = blindRule.checkBlind(score);
     int reward = rewardRule.earnMoney(win, score);
     
