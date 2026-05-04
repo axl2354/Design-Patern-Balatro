@@ -41,3 +41,4 @@ HandRank FlushHouseChecker::check(const Hand& hand) {
     }
     if (nextChecker) return nextChecker->check(hand);
     return HandRank::HighCard;
+}

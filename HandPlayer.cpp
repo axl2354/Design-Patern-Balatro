@@ -9,6 +9,7 @@ Hand HandPlayer::playHand(Hand& hand) {
     Hand playedHand;  // Local variable - resets each call
     int select;       // Local variable
     int confirm = 1;  // Local variable - resets each call
+    int cardsPlayed = 0; // Local variable to track number of cards played
     
     
     std::cout << "Player selects cards to play...\n";
@@ -32,6 +33,11 @@ Hand HandPlayer::playHand(Hand& hand) {
             std::cout << "Card " << select << " selected.\n";
             playedHand.cards.push_back(hand.cards[select - 1]);
             hand.cards.erase(hand.cards.begin() + (select - 1)); 
+            cardsPlayed++;
+            if (cardsPlayed >= 5) {
+                std::cout << "Maximum of 5 cards played.\n";
+                break;
+            }
             std::cout << "Select more cards? (1 for Yes, 0 for No): ";
             std::cin >> confirm;
             if (!confirm) {
