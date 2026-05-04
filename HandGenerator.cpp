@@ -20,19 +20,6 @@ Hand HandGenerator::generateHand() {
         Card randomCard;
         randomCard.rank = rankDist(gen);
         randomCard.suit = suits[suitDist(gen)];
-        
-        // TAMBAHAN BARU: Mencetak kartu ke terminal 
-        std::cout << "Card " << (i + 1) << " generated: ";
-        
-        // Opsional: Mempercantik tampilan output untuk kartu wajah (J, Q, K, A)
-        if (randomCard.rank == 11) std::cout << "J";
-        else if (randomCard.rank == 12) std::cout << "Q";
-        else if (randomCard.rank == 13) std::cout << "K";
-        else if (randomCard.rank == 14) std::cout << "A";
-        else std::cout << randomCard.rank;
-
-        std::cout << " of " << randomCard.suit << "\n";
-        // -------------------------------------------------
 
         hand.cards.push_back(randomCard);
     }
