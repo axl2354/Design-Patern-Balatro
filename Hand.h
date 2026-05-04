@@ -1,6 +1,8 @@
-// Hand.h
 #pragma once
+#include <vector>
+#include "Card.h"
 
-struct Hand {
-    int value = 0; // Dummy data [cite: 341]
+struct Hand
+{
+std::vector<Card> cards;
 };
