@@ -1,10 +1,10 @@
 #include "BigBlind.h"
 #include <cmath>
 
-// big blind is 1.5x small blind; round to nearest integer
 BigBlindState::BigBlindState(int smallAnte) {
-    ante = static_cast<int>(std::lround(smallAnte * 1.5));
-    required_score = 6 + ante;
+    ante = smallAnte;
+    const int smallRequired = 5 + smallAnte;
+    required_score = static_cast<int>(std::lround(smallRequired * 1.5));
 }
 
 std::string BigBlindState::getName() const {

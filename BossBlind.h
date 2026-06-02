@@ -4,7 +4,7 @@
 
 class BossBlindState : public BlindState {
 public:
-    // Accept the small blind ante as the anchor and compute boss ante from it
+    // Keep the ante equal to the small blind ante; scale only required score
     explicit BossBlindState(int smallAnte);
     std::string getName() const override;
     BlindType getType() const override;
