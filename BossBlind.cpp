@@ -1,12 +1,11 @@
 #include "BossBlind.h"
-#include "BigBlind.h"
 #include <cmath>
 
-// boss blind is 2x big blind; since big blind = 1.5x small, boss = 3x small
 BossBlindState::BossBlindState(int smallAnte) {
-    int bigAnte = static_cast<int>(std::lround(smallAnte * 1.5));
-    ante = bigAnte * 2;
-    required_score = 8 + ante;
+    ante = smallAnte;
+    const int smallRequired = 5 + smallAnte;
+    const int bigRequired = static_cast<int>(std::lround(smallRequired * 1.5));
+    required_score = bigRequired * 2;
 }
 
 std::string BossBlindState::getName() const {

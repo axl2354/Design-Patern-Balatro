@@ -4,7 +4,7 @@
 
 class BigBlindState : public BlindState {
 public:
-    // Accept the small blind ante as the anchor and compute big ante from it
+    // Keep the ante equal to the small blind ante; scale only required score
     explicit BigBlindState(int smallAnte);
     std::string getName() const override;
     BlindType getType() const override;
