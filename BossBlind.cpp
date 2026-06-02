@@ -4,8 +4,8 @@
 BossBlindState::BossBlindState(int smallAnte) {
     ante = smallAnte;
     const int smallRequired = 5 + smallAnte;
-    const int bigRequired = static_cast<int>(std::lround(smallRequired * 1.5));
-    required_score = bigRequired * 2;
+    const int bigRequired = static_cast<int>(std::lround(smallRequired * 2));
+    required_score = bigRequired;
 }
 
 std::string BossBlindState::getName() const {

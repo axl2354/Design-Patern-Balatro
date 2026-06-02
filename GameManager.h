@@ -1,12 +1,15 @@
 // GameManager.h
 #pragma once
+#include <memory>
+#include "Deck.h"
 #include "HandGenerator.h"
 #include "HandPlayer.h"
 #include "ScoringRule.h"
 #include "BlindRule.h"
 #include "BlindStateManager.h"
 #include "RewardRule.h"
-#include "BlindStateManager.h"
+#include "SkipRewards/SkipRewardInvoker.h"
+#include "SkipRewards/SkipRewardReceiver.h"
 
 class GameManager {
 public:
@@ -14,6 +17,8 @@ public:
     ~GameManager();
     void runSession();
 private:
+    std::unique_ptr<SkipCommand> createRandomSkipReward();
+
     Deck deck;
     HandGenerator handGenerator;
     HandPlayer handPlayer;
@@ -21,4 +26,6 @@ private:
     BlindRule blindRule;
     BlindStateManager blindStateManager;
     RewardRule rewardRule;
+    SkipRewardInvoker skipRewardInvoker;
+    SkipRewardReceiver skipRewardReceiver;
 };

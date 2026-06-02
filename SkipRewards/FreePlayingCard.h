@@ -2,17 +2,15 @@
 
 #include "SkipCommand.h"
 #include "SkipRewardReceiver.h"
-#include "Hand.h"
-#include "Deck.h"
+#include "../Deck.h"
 
 class FreePlayingCard : public SkipCommand {
 public:
-    FreePlayingCard(SkipRewardReceiver& receiver, Hand& playerHand, Deck& deck);
+    FreePlayingCard(SkipRewardReceiver& receiver, Deck& deck);
     void execute() override;
     EventType getEventType() const override;
 
 private:
     SkipRewardReceiver& receiver;
-    Hand& playerHand;
     Deck& deck;
 };
