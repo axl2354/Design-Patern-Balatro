@@ -1,5 +1,6 @@
 // GameManager.cpp
 #include "GameManager.h"
+#include <cctype>
 #include <iostream>
 
 GameManager::GameManager() {
