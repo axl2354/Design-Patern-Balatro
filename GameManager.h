@@ -6,6 +6,7 @@
 #include "BlindRule.h"
 #include "BlindState.h"
 #include "RewardRule.h"
+#include "BlindStateManager.h"
 
 class GameManager {
 public:
