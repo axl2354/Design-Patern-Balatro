@@ -16,15 +16,27 @@ void GameManager::runSession() {
     while (!blindStateManager.isWinCondition()) {
         blindStateManager.printStatus();
 
-        Hand hand = handGenerator.generateHand(deck);
-        Hand playedHand = handPlayer.playHand(hand);
-        int score = scoringRule.scoreHand(playedHand);
+        bool skipBlind = false;
+        if (blindStateManager.canSkip()) {
+            char choice;
+            do {
+                std::cout << "Skip " << blindStateManager.currentState().getName() << "? (y/n): ";
+                std::cin >> choice;
+                choice = static_cast<char>(std::tolower(static_cast<unsigned char>(choice)));
+            } while (choice != 'y' && choice != 'n');
 
-        if (blindStateManager.canSkip() && score < blindStateManager.currentRequiredScore()) {
-            int reward = blindStateManager.skipReward(score);
-            std::cout << "Skip chosen for " << blindStateManager.currentState().getName() << ". Reward: $" << reward << "\n";
-            deck.returnHand(playedHand);
+            skipBlind = (choice == 'y');
+        }
+
+        if (skipBlind) {
+            int reward = blindStateManager.skipReward(0);
+            std::cout << "Skip chosen for " << blindStateManager.currentState().getName()
+                      << ". Reward: $" << reward << "\n";
         } else {
+            Hand hand = handGenerator.generateHand(deck);
+            Hand playedHand = handPlayer.playHand(hand);
+            int score = scoringRule.scoreHand(playedHand);
+
             bool win = blindRule.checkBlind(score, blindStateManager.currentRequiredScore());
             int reward = rewardRule.earnMoney(win, score);
             std::cout << "Hand score: " << score << ". ";
