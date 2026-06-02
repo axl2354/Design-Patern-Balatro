@@ -4,7 +4,7 @@
 #include "HandPlayer.h"
 #include "ScoringRule.h"
 #include "BlindRule.h"
-#include "BlindState.h"
+#include "BlindStateManager.h"
 #include "RewardRule.h"
 
 class GameManager {
