@@ -6,6 +6,7 @@
 BossBlindState::BossBlindState(int smallAnte) {
     int bigAnte = static_cast<int>(std::lround(smallAnte * 1.5));
     ante = bigAnte * 2;
+    required_score = 8 + ante;
 }
 
 std::string BossBlindState::getName() const {
@@ -25,7 +26,7 @@ int BossBlindState::skipReward(int /*score*/) const {
 }
 
 int BossBlindState::requiredScore() const {
-    return 8 + ante;
+    return required_score;
 }
 
 int BossBlindState::getAnte() const {

@@ -14,4 +14,5 @@ public:
 
 private:
     int ante;
+    int required_score;
 };
