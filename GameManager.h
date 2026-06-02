@@ -4,6 +4,7 @@
 #include "HandPlayer.h"
 #include "ScoringRule.h"
 #include "BlindRule.h"
+#include "BlindState.h"
 #include "RewardRule.h"
 
 class GameManager {
@@ -17,5 +18,6 @@ private:
     HandPlayer handPlayer;
     ScoringRule scoringRule;
     BlindRule blindRule;
+    BlindStateManager blindStateManager;
     RewardRule rewardRule;
 };
