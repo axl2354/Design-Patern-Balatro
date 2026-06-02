@@ -3,5 +3,5 @@
 
 class BlindRule {
 public:
-    bool checkBlind(int score);
+    bool checkBlind(int score, int threshold = 5);
 };
