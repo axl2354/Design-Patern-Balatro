@@ -12,11 +12,12 @@ GameManager::~GameManager() {
 void GameManager::runSession() {
     std::cout << "=== Run Started ===\n";
     
-    Hand hand = handGenerator.generateHand();
+    Hand hand = handGenerator.generateHand(deck);
     Hand playedHand = handPlayer.playHand(hand);
     int score = scoringRule.scoreHand(playedHand);
     bool win = blindRule.checkBlind(score);
     int reward = rewardRule.earnMoney(win, score);
+    deck.returnHand(playedHand);
     
     std::cout << "Money gained: $" << reward << "\n";
     std::cout << "=== Run Ended ===\n";

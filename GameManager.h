@@ -12,6 +12,7 @@ public:
     ~GameManager();
     void runSession();
 private:
+    Deck deck;
     HandGenerator handGenerator;
     HandPlayer handPlayer;
     ScoringRule scoringRule;

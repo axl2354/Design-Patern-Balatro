@@ -4,6 +4,6 @@
 
 struct Hand
 {
-std::vector<Card> cards;
-int value;
+    std::vector<Card> cards;
+    int value = 0;
 };
