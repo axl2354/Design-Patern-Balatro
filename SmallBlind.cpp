@@ -2,7 +2,7 @@
 #include <string>
 
 SmallBlindState::SmallBlindState(int smallAnte)
-    : ante(smallAnte) {}
+    : ante(smallAnte), required_score(5 + smallAnte) {}
 
 std::string SmallBlindState::getName() const {
     return "Small Blind";
@@ -21,7 +21,7 @@ int SmallBlindState::skipReward(int /*score*/) const {
 }
 
 int SmallBlindState::requiredScore() const {
-    return 5 + ante;
+    return required_score;
 }
 
 int SmallBlindState::getAnte() const {

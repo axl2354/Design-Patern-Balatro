@@ -4,6 +4,7 @@
 // big blind is 1.5x small blind; round to nearest integer
 BigBlindState::BigBlindState(int smallAnte) {
     ante = static_cast<int>(std::lround(smallAnte * 1.5));
+    required_score = 6 + ante;
 }
 
 std::string BigBlindState::getName() const {
@@ -23,7 +24,7 @@ int BigBlindState::skipReward(int /*score*/) const {
 }
 
 int BigBlindState::requiredScore() const {
-    return 6 + ante;
+    return required_score;
 }
 
 int BigBlindState::getAnte() const {
