@@ -1,11 +1,12 @@
 #include "BonusHandCommand.h"
 
-BonusHandCommand::BonusHandCommand(SkipRewardReceiver& receiver, Deck& deck, int bonusCount)
-    : receiver(receiver), deck(deck), bonusCount(bonusCount) {
+BonusHandCommand::BonusHandCommand(SkipRewardReceiver& receiver, HandCount& handCount, int bonusCount)
+    : receiver(receiver), handCount(handCount), bonusCount(bonusCount) {
 }
 
 void BonusHandCommand::execute() {
-    receiver.grantBonusHand(deck, bonusCount);
+    handCount.addPlays(bonusCount);
+    receiver.grantBonusHand(handCount.getRemaining(), bonusCount);
 }
 
 EventType BonusHandCommand::getEventType() const {

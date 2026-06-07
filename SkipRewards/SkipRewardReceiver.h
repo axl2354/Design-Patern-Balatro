@@ -4,6 +4,6 @@
 
 class SkipRewardReceiver {
 public:
-    void grantBonusHand(Deck& deck, int count = 1);
+    int grantBonusHand(int hand, int count = 1);
     void grantFreePlayingCard(Deck& deck);
 };

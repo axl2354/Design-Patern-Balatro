@@ -9,5 +9,5 @@ void FreePlayingCard::execute() {
 }
 
 EventType FreePlayingCard::getEventType() const {
-    return EventType::BlindEnter;
+    return EventType::Instant;
 }

@@ -10,6 +10,7 @@
 #include "RewardRule.h"
 #include "SkipRewards/SkipRewardInvoker.h"
 #include "SkipRewards/SkipRewardReceiver.h"
+#include "HandCount.h"
 
 class GameManager {
 public:
@@ -28,4 +29,5 @@ private:
     RewardRule rewardRule;
     SkipRewardInvoker skipRewardInvoker;
     SkipRewardReceiver skipRewardReceiver;
+    HandCount handCount;
 };

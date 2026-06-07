@@ -10,16 +10,9 @@ static std::string printCard(const Card& card) {
     return std::to_string(card.rank) + card.suit;
 }
 
-void SkipRewardReceiver::grantBonusHand(Deck& deck, int count) {
-    std::cout << "Granting bonus hand reward...\n";
-    for (int i = 0; i < count; ++i) {
-        if (deck.empty()) {
-            std::cout << "Deck is empty, no bonus cards available.\n";
-            break;
-        }
-        Card card = deck.dealCard();
-        std::cout << "  Bonus card: " << printCard(card) << "\n";
-    }
+int SkipRewardReceiver::grantBonusHand(int hand, int count) {
+    std::cout << "Granting bonus hand reward: " << count << " additional hand(s).\n";
+    return hand + count;
 }
 
 void SkipRewardReceiver::grantFreePlayingCard(Deck& deck) {
@@ -50,7 +43,7 @@ void SkipRewardReceiver::grantFreePlayingCard(Deck& deck) {
         std::cout << "Invalid choice. Please select a number between 1 and 5: ";
         std::cin >> chosenIndex;
     }
-    Card chosenCard = candidates[chosenIndex];
+    Card chosenCard = candidates[chosenIndex - 1];
     deck.returnCard(chosenCard);
 
     std::cout << "Chosen free playing card added to deck: " << printCard(chosenCard) << "\n";

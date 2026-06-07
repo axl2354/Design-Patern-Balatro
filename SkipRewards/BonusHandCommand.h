@@ -3,15 +3,16 @@
 #include "SkipCommand.h"
 #include "SkipRewardReceiver.h"
 #include "../Deck.h"
+#include "../HandCount.h"
 
 class BonusHandCommand : public SkipCommand {
 public:
-    BonusHandCommand(SkipRewardReceiver& receiver, Deck& deck, int bonusCount = 1);
+    BonusHandCommand(SkipRewardReceiver& receiver, HandCount& handCount, int bonusCount = 1);
     void execute() override;
     EventType getEventType() const override;
 
 private:
     SkipRewardReceiver& receiver;
-    Deck& deck;
+    HandCount& handCount;
     int bonusCount;
 };
